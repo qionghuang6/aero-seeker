@@ -1,7 +1,15 @@
 import {Card, CardContent, Typography, TextField, Button, Input, Slider} from '@material-ui/core';
 
+const LOCATIONS = {
+    mit: [42.360092, -71.094162, 125],
+    london: [51.507351, -0.127758, 125],
+    tokyo: [35.689487, 139.691711, 125],
+    newyork: [40.646632, -73.785686, 125],
+    hongkong: [22.392666, 114.147605, 125],
+}
+
 const SeekInputs = ({setSeekParams}) =>{
-    const [range, setRange] = React.useState(50);
+    const [range, setRange] = React.useState(125);
     const [long, setLong] = React.useState(-74.003);
     const [lat, setLat] = React.useState(40.627);
 
@@ -25,8 +33,30 @@ const SeekInputs = ({setSeekParams}) =>{
         setRange(event.target.value === '' ? '' : Number(event.target.value));
     };
 
-    const handleSubmit = () => {
-        setSeekParams(lat,long,range);
+    const handleSubmit = (event) => {
+        switch (event.currentTarget.value) {
+            case "inputs":
+                setSeekParams(lat,long,range);
+                break;
+            case "mit":
+                setSeekParams(...LOCATIONS.mit);
+                break;
+            case "london":
+                setSeekParams(...LOCATIONS.london);
+                break;
+            case "tokyo":
+                setSeekParams(...LOCATIONS.tokyo);
+                break;
+            case "newyork":
+                setSeekParams(...LOCATIONS.newyork);
+                break;
+            case "hongkong":
+                setSeekParams(...LOCATIONS.hongkong);
+                break;
+            default:
+                setSeekParams(lat,long,range);
+                break;
+        }
     }
     return (
     <Card>
@@ -40,7 +70,7 @@ const SeekInputs = ({setSeekParams}) =>{
         <Typography variant="h6">Radius (miles) </Typography>
         <Slider
             min ={10}
-            max = {300}
+            max = {500}
             value={typeof range === 'number' ? range : 0}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
@@ -53,16 +83,32 @@ const SeekInputs = ({setSeekParams}) =>{
             inputProps={{
                 step: 10,
                 min: 10,
-                max: 300,
+                max: 500,
                 type: 'number',
                 'aria-labelledby': 'input-slider',
             }}
         />
         <br></br>
-        <Button variant="contained" color="primary" onClick = {handleSubmit}>
+        <Button variant="contained" color="primary" value="inputs" onClick = {handleSubmit}>
              Seek Planes in {range} mile radius!
         </Button>
         </form>
+        <Typography variant="h5">Try these other locations!</Typography>
+        <Button variant="contained" color="primary" value="mit" onClick = {handleSubmit}>
+             MIT
+        </Button>
+        <Button variant="contained" color="primary" value="london" onClick = {handleSubmit}>
+             London
+        </Button>
+        <Button variant="contained" color="primary" value="tokyo" onClick = {handleSubmit}>
+             Tokyo
+        </Button>
+        <Button variant="contained" color="primary" value="newyork" onClick = {handleSubmit}>
+             JFK Airport (New York)
+        </Button>
+        <Button variant="contained" color="primary" value="hongkong" onClick = {handleSubmit}>
+             Hong Kong
+        </Button>
       </CardContent>
     </Card>
     )

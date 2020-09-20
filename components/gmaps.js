@@ -18,7 +18,7 @@ const GMaps = (props) => {
       <div style={{ height: '60vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: gmapskey }}
-          defaultCenter={props.center}
+          center={props.center}
           defaultZoom={props.zoom}
         >
           <MapMarker

@@ -9,27 +9,27 @@ const PlaneDataCard = ({stateVector}) =>{
         </Typography>
         <List>
             <ListItem>
-                <ListItemText secondary="ICAO24:" primary={stateVector[0]}/>
+                <ListItemText secondary="ICAO24" primary={stateVector[0]}/>
             </ListItem>
             <Divider />
             <ListItem>
-                <ListItemText secondary="Origin:" primary={stateVector[2]}/>
+                <ListItemText secondary="Origin" primary={stateVector[2]}/>
             </ListItem>
             <Divider />
             <ListItem>
-                <ListItemText secondary="Longitude:" primary={stateVector[5]}/>
+                <ListItemText secondary="Longitude" primary={stateVector[5]}/>
             </ListItem>
             <Divider />
             <ListItem>
-                <ListItemText secondary="Latitude:" primary={stateVector[6]}/>
+                <ListItemText secondary="Latitude" primary={stateVector[6]}/>
             </ListItem>
             <Divider />
             <ListItem>
-                <ListItemText secondary="Speed:" primary={(stateVector[9] * 2.23694).toFixed(2) + " mph"}/>
+                <ListItemText secondary="Speed" primary={(stateVector[9] * 2.23694).toFixed(2) + " mph"}/>
             </ListItem>
             <Divider />
             <ListItem>
-                <ListItemText secondary="Vertical Speed:" primary={stateVector[11]}/>
+                <ListItemText secondary="Vertical Speed" primary={stateVector[11] + " m/s"}/>
             </ListItem>
         </List>
       </CardContent>

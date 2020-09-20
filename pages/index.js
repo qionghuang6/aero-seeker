@@ -25,7 +25,7 @@ export default class Home extends React.Component{
       lat: 40.627642, 
       long: -74.003822,
       planes: [],
-      radius: 50,
+      radius: 125,
     }
     this.setSeekParams = this.setSeekParams.bind(this);
   }
@@ -58,7 +58,6 @@ export default class Home extends React.Component{
             <GMaps center={{lat: this.state.lat, lng: this.state.long}} zoom={9} planes={this.state.planes}></GMaps>
           </Grid>
         </Grid>
-    <Typography>Planes in sky{this.props.data.states.length}</Typography>
         <Typography variant="h3">{this.state.planes.length} Planes Found!</Typography>
         <PlanesGrid planes={this.state.planes}></PlanesGrid>
       </div>
