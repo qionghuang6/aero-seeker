@@ -34,9 +34,9 @@ const SeekInputs = ({setSeekParams}) =>{
       <form>
         <Typography>Default Location is Qiong's Middle School</Typography>
         <Typography variant="h6">Longitude</Typography>
-        <TextField id="outlined-basic" value={long} onChange={handleLongChange} label="e.g. 40.627" variant="outlined" />
+        <TextField id="outlined-basic" value={long} onChange={handleLongChange} label="e.g. -74.003" variant="outlined" />
         <Typography variant="h6">Latitude</Typography>
-        <TextField id="outlined-basic" value={lat} onChange={handleLatChange} label="e.g. -74.003" variant="outlined" />
+        <TextField id="outlined-basic" value={lat} onChange={handleLatChange} label="e.g. 40.627" variant="outlined" />
         <Typography variant="h6">Radius (miles) </Typography>
         <Slider
             min ={10}

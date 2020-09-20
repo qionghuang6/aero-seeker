@@ -2,6 +2,7 @@ import Header from '../components/layout'
 import PlanesGrid from '../components/planesGrid'
 import {Grid, Typography} from '@material-ui/core';
 import SeekInputs from '../components/seekInput'
+import GMaps from '../components/gmaps'
 
 const calcDistanceMiles = (lat1,lat2,long1,long2) => {
   // Formula from https://www.geeksforgeeks.org/program-distance-two-points-earth
@@ -53,8 +54,11 @@ export default class Home extends React.Component{
           <Grid item xs={12} sm={4} md={3}>
             <SeekInputs setSeekParams={this.setSeekParams}></SeekInputs>
           </Grid>
+          <Grid item xs = {12} sm={8} md ={9}>
+            <GMaps center={{lat: this.state.lat, lng: this.state.long}} zoom={9} planes={this.state.planes}></GMaps>
+          </Grid>
         </Grid>
-        <Typography>debug: {this.state.lat} <br></br>{this.state.long}<br></br>{this.state.radius}</Typography>
+    <Typography>Planes in sky{this.props.data.states.length}</Typography>
         <Typography variant="h3">{this.state.planes.length} Planes Found!</Typography>
         <PlanesGrid planes={this.state.planes}></PlanesGrid>
       </div>
