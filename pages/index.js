@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Header from '../components/layout'
 import PlanesGrid from '../components/planesGrid'
 import {Typography} from '@material-ui/core';
 
@@ -47,10 +47,7 @@ export default class Home extends React.Component{
   render(){
     return (
       <div>
-        <Head>
-          <title>AeroSeeker</title>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-        </Head>
+        <Header></Header>
         <Typography variant="h1">Hello World</Typography>
         <PlanesGrid planes={this.state.planes}></PlanesGrid>
       </div>
