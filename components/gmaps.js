@@ -8,6 +8,7 @@ const GMaps = (props) => {
     for(const stateVector of props.planes){
         planePoints.push((
             <MapMarker
+                icao = {stateVector[0]}
                 key = {id}
                 lat={stateVector[6]}
                 lng={stateVector[5]}

@@ -7,7 +7,7 @@ const PlanesGrid = ({planes}) => {
     for(const stateVector of planes){
         cardList.push((
             <Grid item xs={12} sm={4} md={3} xl={2} key={id}>
-                <PlaneDataCard stateVector={stateVector}></PlaneDataCard>
+                <PlaneDataCard stateVector={stateVector} isVerbose={false}></PlaneDataCard>
             </Grid>
         ));
         id += 1;

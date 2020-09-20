@@ -8,9 +8,11 @@ const MapMarker = (props) => {
     }
     return (
         <div>
-            <svg height="20" width="20">
-                <circle cx="10" cy="10" r="6" fill={color} stroke="black" strokeWidth="2" />
-            </svg>
+            <a href={`/planes/${encodeURIComponent(props.icao)}`}>
+                <svg height="22" width="22">
+                    <circle cx="11" cy="11" r="7" fill={color} stroke="black" strokeWidth="2" />
+                </svg>
+            </a>
             <Typography variant="body1">{props.name}</Typography>
         </div>
     )
