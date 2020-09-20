@@ -4,7 +4,7 @@ const PlaneDataCard = ({stateVector, isVerbose}) =>{
     let moreItems = [];
     if(isVerbose){
         moreItems.push((
-            <div>
+            <div key="extras">
                 <ListItem key="vert">
                     <ListItemText secondary="Vertical Speed" primary={stateVector[11] + " m/s"}/>
                 </ListItem>

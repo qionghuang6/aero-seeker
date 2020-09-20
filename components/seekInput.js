@@ -35,7 +35,7 @@ const SeekInputs = ({setSeekParams}) =>{
 
     const handleSubmit = (event) => {
         let params = LOCATIONS[(event.currentTarget.value)];
-        if(event.target.value === "inputs"){
+        if(event.currentTarget.value === "inputs"){
             setSeekParams(lat,long,range);
         } else{
             setLat(params[0]);

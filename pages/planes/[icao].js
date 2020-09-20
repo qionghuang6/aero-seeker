@@ -20,10 +20,10 @@ const PlanePage = (props) =>{
                     <Box m={2}>
                         <br></br>
                         <Breadcrumbs aria-label="breadcrumb">
-                            <Link color="black" href="/">
+                            <Link href="/">
                                 All Planes
                             </Link>
-                            <Typography color="black">
+                            <Typography>
                                 {icao}
                             </Typography>
                         </Breadcrumbs>
