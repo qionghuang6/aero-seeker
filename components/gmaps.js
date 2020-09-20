@@ -1,7 +1,9 @@
-import gmapskey from '../gmapskey.js'
+// import gmapskey from '../gmapskey.js'
 import GoogleMapReact from 'google-map-react';
 import MapMarker from './mapMarker';
  
+const gmapskey = process.env.GMAPSKEY;
+
 const GMaps = (props) => {
     let planePoints = [];
     for(const stateVector of props.planes){
