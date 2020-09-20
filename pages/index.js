@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import PlanesGrid from '../components/planesGrid'
 import {Typography} from '@material-ui/core';
 
 const calcDistanceMiles = (lat1,lat2,long1,long2) => {
@@ -39,7 +40,7 @@ export default class Home extends React.Component{
         return calcDistanceMiles(stateVector[6], prevState.lat, stateVector[5], prevState.long) < prevState.radius
       }
       return false;
-    })
+    });
     return {planes: nearbyPlanes}
   }
 
@@ -48,10 +49,10 @@ export default class Home extends React.Component{
       <div>
         <Head>
           <title>AeroSeeker</title>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         </Head>
         <Typography variant="h1">Hello World</Typography>
-        <Typography variant="h2">{calcDistanceMiles(53.32055555555556,53.31861111111111,-1.7297222222222221,-1.6997222222222223)}</Typography>
-        <Typography>{this.state.planes}</Typography>
+        <PlanesGrid planes={this.state.planes}></PlanesGrid>
       </div>
     )
   }
