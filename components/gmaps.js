@@ -1,25 +1,26 @@
 // import gmapskey from '../gmapskey.js'
 import GoogleMapReact from 'google-map-react';
 import MapMarker from './mapMarker';
- 
-const gmapskey = process.env.GMAPSKEY;
 
 const GMaps = (props) => {
     let planePoints = [];
+    let id = 0;
     for(const stateVector of props.planes){
         planePoints.push((
             <MapMarker
+                key = {id}
                 lat={stateVector[6]}
                 lng={stateVector[5]}
                 name={stateVector[1]}
                 type="plane"
           />
         ))
+        id += 1;
     }
     return (
       <div style={{ height: '60vh', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: gmapskey }}
+          bootstrapURLKeys={{ key: props.gmapskey }}
           center={props.center}
           defaultZoom={props.zoom}
         >

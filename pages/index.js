@@ -55,7 +55,7 @@ export default class Home extends React.Component{
             <SeekInputs setSeekParams={this.setSeekParams}></SeekInputs>
           </Grid>
           <Grid item xs = {12} sm={8} md ={9}>
-            <GMaps center={{lat: this.state.lat, lng: this.state.long}} zoom={9} planes={this.state.planes}></GMaps>
+            <GMaps gmapskey={this.props.gmapskey} center={{lat: this.state.lat, lng: this.state.long}} zoom={9} planes={this.state.planes}></GMaps>
           </Grid>
         </Grid>
         <Typography variant="h3">{this.state.planes.length} Planes Found!</Typography>
@@ -71,6 +71,7 @@ export async function getStaticProps(){
   return {
     props: {
       data,
+      gmapskey: process.env.GMAPSKEY
     },
   }
 }

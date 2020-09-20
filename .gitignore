@@ -35,3 +35,7 @@ yarn-error.log*
 
 #gmapskey
 gmapskey.js
+
+#env
+*.env
+*.env.local
