@@ -8,8 +8,8 @@ const MapMarker = (props) => {
     }
     return (
         <div>
-            <svg height="26" width="26">
-                <circle cx="13" cy="13" r="10" fill={color} stroke="black" strokeWidth="3" />
+            <svg height="20" width="20">
+                <circle cx="10" cy="10" r="6" fill={color} stroke="black" strokeWidth="2" />
             </svg>
             <Typography variant="body1">{props.name}</Typography>
         </div>

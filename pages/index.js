@@ -25,7 +25,7 @@ export default class Home extends React.Component{
       lat: 40.627642, 
       long: -74.003822,
       planes: [],
-      radius: 125,
+      radius: 50,
     }
     this.setSeekParams = this.setSeekParams.bind(this);
   }
@@ -65,7 +65,7 @@ export default class Home extends React.Component{
   }
 }
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
   const res = await fetch('https://opensky-network.org/api/states/all');
   const data = await res.json();
   return {

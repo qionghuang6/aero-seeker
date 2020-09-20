@@ -1,15 +1,15 @@
 import {Card, CardContent, Typography, TextField, Button, Input, Slider} from '@material-ui/core';
 
 const LOCATIONS = {
-    mit: [42.360092, -71.094162, 125],
-    london: [51.507351, -0.127758, 125],
-    tokyo: [35.689487, 139.691711, 125],
-    newyork: [40.646632, -73.785686, 125],
-    hongkong: [22.392666, 114.147605, 125],
+    mit: [42.360092, -71.094162],
+    london: [51.507351, -0.127758],
+    tokyo: [35.689487, 139.691711],
+    newyork: [40.646632, -73.785686],
+    hongkong: [22.392666, 114.147605],
 }
 
 const SeekInputs = ({setSeekParams}) =>{
-    const [range, setRange] = React.useState(125);
+    const [range, setRange] = React.useState(50);
     const [long, setLong] = React.useState(-74.003);
     const [lat, setLat] = React.useState(40.627);
 
@@ -34,28 +34,13 @@ const SeekInputs = ({setSeekParams}) =>{
     };
 
     const handleSubmit = (event) => {
-        switch (event.currentTarget.value) {
-            case "inputs":
-                setSeekParams(lat,long,range);
-                break;
-            case "mit":
-                setSeekParams(...LOCATIONS.mit);
-                break;
-            case "london":
-                setSeekParams(...LOCATIONS.london);
-                break;
-            case "tokyo":
-                setSeekParams(...LOCATIONS.tokyo);
-                break;
-            case "newyork":
-                setSeekParams(...LOCATIONS.newyork);
-                break;
-            case "hongkong":
-                setSeekParams(...LOCATIONS.hongkong);
-                break;
-            default:
-                setSeekParams(lat,long,range);
-                break;
+        let params = LOCATIONS[(event.currentTarget.value)];
+        if(event.target.value === "inputs"){
+            setSeekParams(lat,long,range);
+        } else{
+            setLat(params[0]);
+            setLong(params[1]);
+            setSeekParams(...params, range);
         }
     }
     return (
