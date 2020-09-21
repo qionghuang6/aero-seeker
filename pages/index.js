@@ -65,7 +65,7 @@ export default class Home extends React.Component{
   }
 }
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
   const res = await fetch('https://opensky-network.org/api/states/all');
   const data = await res.json();
   return {
@@ -73,5 +73,6 @@ export async function getServerSideProps(){
       data,
       gmapskey: process.env.GMAPSKEY
     },
+    revalidate: 3, // In seconds
   }
 }
